@@ -18,10 +18,10 @@ criarCarta.addEventListener('click', createdLetter);
 function createdLetter(){
     let span = document.createElement('span');
     cartaGerada.appendChild(span);
-    span.innerText = cartaTexto.value;
+   // span.innerText = cartaTexto.value;
+   if(cartaTexto.value === ''){
+       cartaGerada.innerText = 'Por favor, digite o conteúdo da carta'
+    // espaços vazios
+   }
 
-    if(cartaTexto.value === ''){
-        cartaGerada.innerText = 'Por favor, digite o conteúdo da carta'
-    }
-
-}
+} 
