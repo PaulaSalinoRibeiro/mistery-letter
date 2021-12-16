@@ -55,5 +55,24 @@ function addStyle(){
     } 
 }
 
+cartaGerada.addEventListener('click', changeStyle);
 
+function changeStyle(event){
+    let randonIndex1 = Math.floor(Math.random()*3);
+    let randonIndex2 = Math.floor(Math.random()*2);
 
+    event.target.classList.add(sizeGroup[randonIndex1], styleGroup[randonIndex1], rotateGroup[randonIndex2], skewGroup[randonIndex2]);
+} 
+
+let paragraph = document.createElement('p');
+paragraph.id = 'carta-contador';
+container.appendChild(paragraph);
+
+criarCarta.addEventListener('click', count);
+
+function count(){
+    let frase = cartaTexto.value;
+    let fraseWithoutSpaces = frase.trim();
+    let words =  fraseWithoutSpaces.split(' '); 
+    paragraph.innerText = words.length - 1;
+}
