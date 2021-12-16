@@ -16,12 +16,21 @@ criarCarta.innerText = 'Criar Carta'
 criarCarta.addEventListener('click', createdLetter);
 
 function createdLetter(){
-    let span = document.createElement('span');
-    cartaGerada.appendChild(span);
-   // span.innerText = cartaTexto.value;
-   if(cartaTexto.value === ''){
-       cartaGerada.innerText = 'Por favor, digite o conteúdo da carta'
-    // espaços vazios
-   }
+       
+    if(cartaGerada.children !== 0){
+        let spans = document.querySelectorAll('span');
+        for(let index = 0; index < spans.length; index += 1){
+            cartaGerada.removeChild(spans[index]);
+        }
+    }
+
+    let frase = document.getElementById('carta-texto');
+    let word = frase.value.split(' ');
+    
+    for(let index = 0; index < word.length; index += 1){
+        let span = document.createElement('span');
+        span.innerText = word[index];
+        cartaGerada.appendChild(span);
+    }
 
 } 
