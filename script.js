@@ -19,7 +19,7 @@ function createdLetter(){
 
     if( cartaTexto.value === '' ||  cartaTexto.value.trim() !== ' '){
         cartaGerada.innerText = 'Por favor, digite o conteúdo da carta.'
-    }
+    } 
        
     if(cartaGerada.children !== 0){
         let spans = document.querySelectorAll('span');
@@ -38,4 +38,22 @@ function createdLetter(){
     }     
 } 
 
- 
+let styleGroup = ['newspaper', 'magazine1', 'magazine2'];
+let sizeGroup = ['medium', 'big', 'reallybig'];
+let rotateGroup = ['rotateleft', 'rotateright'];
+let skewGroup = ['skewleft', 'skewright'];
+
+criarCarta.addEventListener('click', addStyle);
+
+function addStyle(){
+
+    let spans = document.querySelectorAll('span');
+    for(let index = 0; index < spans.length; index += 1){
+        let randonIndex1 = Math.floor(Math.random()*3);
+        let randonIndex2 = Math.floor(Math.random()*2);
+        spans[index].classList.add(sizeGroup[randonIndex1], styleGroup[randonIndex1], rotateGroup[randonIndex2], skewGroup[randonIndex2]);
+    } 
+}
+
+
+
