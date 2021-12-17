@@ -21,7 +21,7 @@ function createdLetter(){
         cartaGerada.innerText = 'Por favor, digite o conteúdo da carta.'
     }  
        
-    if(cartaGerada.children !== 0){
+    if(cartaGerada.children !== 0) {
         let spans = document.querySelectorAll('span');
         for(let index = 0; index < spans.length; index += 1){
             cartaGerada.removeChild(spans[index]);
@@ -39,8 +39,7 @@ function createdLetter(){
 } 
 
 
-function randonStyle(){
-
+function randonStyle() {
     let sizeGroup = ['medium', 'big', 'reallybig'];
     let styleGroup = ['newspaper', 'magazine1', 'magazine2'];
     let rotateGroup = ['rotateleft', 'rotateright'];
@@ -56,7 +55,7 @@ function randonStyle(){
 
 criarCarta.addEventListener('click', addStyle);
 
-function addStyle(){
+function addStyle() {
     let spans = document.querySelectorAll('span');
     for(let index = 0; index < spans.length; index += 1){
         spans[index].className = randonStyle();
@@ -65,8 +64,12 @@ function addStyle(){
 
 
 cartaGerada.addEventListener('click', changeStyle);
-function changeStyle(event){
-    event.target.className = randonStyle();
+
+function changeStyle() {
+    let spans = document.querySelectorAll('span');
+    for(let index = 0; index < spans.length; index += 1){
+        spans[index].className = randonStyle();
+    }
 } 
 
 let paragraph = document.createElement('p');
@@ -75,7 +78,7 @@ container.appendChild(paragraph);
 
 criarCarta.addEventListener('click', count);
 
-function count(){
+function count() {
     let frase = cartaTexto.value.trim();
     let words =  frase.split(' ');
     paragraph.innerText = words.length;
