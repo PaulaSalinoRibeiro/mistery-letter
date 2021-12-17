@@ -19,7 +19,7 @@ function createdLetter(){
 
     if( cartaTexto.value === '' ||  cartaTexto.value.trim() !== ' '){
         cartaGerada.innerText = 'Por favor, digite o conteúdo da carta.'
-    } 
+    }  
        
     if(cartaGerada.children !== 0){
         let spans = document.querySelectorAll('span');
@@ -38,30 +38,36 @@ function createdLetter(){
     }     
 } 
 
-let styleGroup = ['newspaper', 'magazine1', 'magazine2'];
-let sizeGroup = ['medium', 'big', 'reallybig'];
-let rotateGroup = ['rotateleft', 'rotateright'];
-let skewGroup = ['skewleft', 'skewright'];
+
+function randonStyle(){
+
+    let sizeGroup = ['medium', 'big', 'reallybig'];
+    let styleGroup = ['newspaper', 'magazine1', 'magazine2'];
+    let rotateGroup = ['rotateleft', 'rotateright'];
+    let skewGroup = ['skewleft', 'skewright'];
+
+    let randonIndex1 = Math.floor(Math.random()*3);
+    let randonIndex2 = Math.floor(Math.random()*2);
+
+    let style = sizeGroup[randonIndex1] + ' ' +  styleGroup[randonIndex1] + ' ' + rotateGroup[randonIndex2] + ' ' + skewGroup[randonIndex2]
+
+    return style;  
+}
 
 criarCarta.addEventListener('click', addStyle);
 
 function addStyle(){
-
     let spans = document.querySelectorAll('span');
     for(let index = 0; index < spans.length; index += 1){
-        let randonIndex1 = Math.floor(Math.random()*3);
-        let randonIndex2 = Math.floor(Math.random()*2);
-        spans[index].classList.add(sizeGroup[randonIndex1], styleGroup[randonIndex1], rotateGroup[randonIndex2], skewGroup[randonIndex2]);
+        spans[index].className = randonStyle();
     } 
-}
+} 
+
 
 cartaGerada.addEventListener('click', changeStyle);
 
 function changeStyle(event){
-    let randonIndex1 = Math.floor(Math.random()*3);
-    let randonIndex2 = Math.floor(Math.random()*2);
-
-    event.target.classList.add(sizeGroup[randonIndex1], styleGroup[randonIndex1], rotateGroup[randonIndex2], skewGroup[randonIndex2]);
+    event.target.className = randonStyle();
 } 
 
 let paragraph = document.createElement('p');
@@ -75,4 +81,4 @@ function count(){
     let fraseWithoutSpaces = frase.trim();
     let words =  fraseWithoutSpaces.split(' '); 
     paragraph.innerText = words.length - 1;
-}
+}  
