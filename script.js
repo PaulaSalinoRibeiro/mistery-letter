@@ -65,7 +65,6 @@ function addStyle(){
 
 
 cartaGerada.addEventListener('click', changeStyle);
-
 function changeStyle(event){
     event.target.className = randonStyle();
 } 
@@ -77,8 +76,7 @@ container.appendChild(paragraph);
 criarCarta.addEventListener('click', count);
 
 function count(){
-    let frase = cartaTexto.value;
-    let fraseWithoutSpaces = frase.trim();
-    let words =  fraseWithoutSpaces.split(' '); 
-    paragraph.innerText = words.length - 1;
+    let frase = cartaTexto.value.trim();
+    let words =  frase.split(' ');
+    paragraph.innerText = words.length;
 }  
