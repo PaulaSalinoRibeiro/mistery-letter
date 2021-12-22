@@ -3,6 +3,7 @@ let cartaTexto = document.createElement('input');
 container.appendChild(cartaTexto);
 cartaTexto.id = 'carta-texto';
 cartaTexto.type = 'text';
+cartaTexto.placeholder = 'Digite aqui seu texto'
 
 let cartaGerada = document.createElement('p');
 container.appendChild(cartaGerada);
@@ -16,11 +17,7 @@ criarCarta.innerText = 'Criar Carta'
 criarCarta.addEventListener('click', createdLetter);
 
 function createdLetter(){
-
-    if( cartaTexto.value === '' ||  cartaTexto.value.trim() !== ' '){
-        cartaGerada.innerText = 'Por favor, digite o conteúdo da carta.'
-    }  
-       
+   
     if(cartaGerada.children !== 0) {
         let spans = document.querySelectorAll('span');
         for(let index = 0; index < spans.length; index += 1){
@@ -35,7 +32,11 @@ function createdLetter(){
         let span = document.createElement('span');
         span.innerText = word[index];
         cartaGerada.appendChild(span);
-    }     
+    }  
+    
+    if( cartaTexto.value === ''){
+        cartaGerada.innerText = 'Por favor, digite o conteúdo da carta.'
+    } 
 } 
 
 
